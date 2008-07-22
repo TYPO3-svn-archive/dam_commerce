@@ -1,0 +1,23 @@
+# cat=basic/enable; type=boolean; label=Enable original "Images" field for the category.
+add_orig_field_category_images = 0
+
+# cat=basic/enable; type=boolean; label=Enable original "Images" field for the product.
+add_orig_field_product_images = 0
+
+# cat=basic/enable; type=boolean; label=Enable original "TeaserImages" field for the product.
+add_orig_field_product_teaserimages = 0
+
+# cat=basic/enable; type=boolean; label=Enable original "Images" field for the aricles.
+add_orig_field_articles_images = 0
+
+# cat=basic/enable; type=boolean; label=Enable original "Icon" field for the atributes.
+add_orig_field_atributes_icon = 0
+
+# cat=basic/enable; type=boolean; label=Enable original "Logo" field for the manufacturer.
+add_orig_field_manufacturers_logo = 0
+
+# cat=basic/enable; type=boolean; label=Enable original "Logo" field for the suplier.
+add_orig_field_suplier_logo = 0
+
+# cat=basic/enable; type=boolean; label=Enable original "Icon" field for the atributes value.
+add_orig_field_atrval_icon = 0

@@ -1,0 +1,11 @@
+0.0.4	* Marker for teaser images changed. From now the marker ###PRODUCT_TEASERIMAGES### is used instead of ###PRODUCT_TEASER###. Plz. update your templates. 
+
+0.0.3	* Marker ###PRODUCT_MANUFACTURERLOGO### added
+		* doNotRender option added
+		* Bug repaired by supplier and article images
+
+0.0.2	* Markers ###ARTICLE_SUPPLIERLOGO### and ###ARTICLE_IMAGES### added
+		* some PHP changes
+
+0.0.1	* Initial release
+

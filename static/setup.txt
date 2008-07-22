@@ -1,0 +1,42 @@
+plugin.tx_commerce_pi1{
+	categoryListView.categories.fields{
+		DAM_images{
+			file.maxW = 150
+			stdWrap.wrap=|
+			disable=0
+		}
+	}
+	listView.products.fields{
+		DAM_images{
+			file.maxW = 150
+			stdWrap.wrap=|
+			disable=0
+		}
+		DAM_teaserimages{
+			file.maxW = 150
+			stdWrap.wrap=|
+			disable=0
+		}
+	}
+	listView.articles.fields{
+		DAM_images{
+			file.maxW = 150
+			stdWrap.wrap=|
+			disable=0
+		}
+	}
+	listView.suppliers.fields{
+		DAM_logo{
+			file.maxW = 50
+			stdWrap.wrap=|
+			disable=0
+		}
+	}
+	listView.manufacturers.fields{
+		DAM_logo{
+			file.maxW = 50
+			stdWrap.wrap=|
+			disable=0
+		}
+	}
+}
