@@ -113,7 +113,7 @@ t3lib_extMgm::addTCAcolumns('tx_commerce_attribute_values',$tempColumns_7,1);
 if ($tempSetup['add_orig_field_atrval_icon']) {
 	t3lib_extMgm::addToAllTCAtypes('tx_commerce_attribute_values','tx_damcommerce_atr_val_icon','','after:icon');
 } else {
-	$TCA['tx_commerce_attribute_values']['types']['0']['showitem'] = str_replace(', icon,', ', tx_damcommerce_atr_val_icon;', $TCA['tx_commerce_attribute_values']['types']['0']['showitem']);
+	$TCA['tx_commerce_attribute_values']['types']['0']['showitem'] = str_replace(', icon,', ', tx_damcommerce_atr_val_icon,', $TCA['tx_commerce_attribute_values']['types']['0']['showitem']);
 }
 
 /* ------------------------------------------------------------------------------------------- */
