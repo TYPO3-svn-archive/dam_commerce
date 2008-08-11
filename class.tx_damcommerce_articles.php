@@ -33,13 +33,15 @@
  *
  *
  *
- *   43: class tx_damcommerce_articles
- *   53:     function additionalMarkerArticle($markerArray,$element,$this_default)
+ *   45: class tx_damcommerce_articles
+ *   55:     function additionalMarkerArticle($markerArray,$element,$this_default)
  *
  * TOTAL FUNCTIONS: 1
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
+require_once(t3lib_extMgm::extPath('dam_commerce').'class.tx_damcommerce_helpfunc.php');
+
 class tx_damcommerce_articles{
 
 	/**
@@ -59,14 +61,7 @@ class tx_damcommerce_articles{
 			if(!$tempSetup['add_orig_field_articles_images']) {
 				$markerArray['ARTICLE_IMAGES']='';
 			};
-			$files=tx_dam_db::getReferencedFiles('tx_commerce_articles', $uid, 'dam_commerce_art_1');
-			if(count($files['files'])>0){
-				foreach($files['files'] as $key=>$val){
-					$damField=$this_default->conf['listView.']['articles.']['fields.']['DAM_images.'];
-					$damField['file']=$val;
-					$markerArray['ARTICLE_IMAGES'].=$this_default->cObj->IMAGE($damField);
-				}
-			}
+			tx_damcommerce_helpfunc::getImage($markerArray['ARTICLE_IMAGES'],$this_default,$this_default->conf['listView.']['articles.']['fields.']['DAM_images.'],$uid,'tx_commerce_articles','dam_commerce_art_1');
 		}
 		
 		/* supplier logo */
@@ -77,14 +72,7 @@ class tx_damcommerce_articles{
 				if(!$tempSetup['add_orig_field_suplier_logo']) {
 					$markerArray['ARTICLE_SUPPLIERLOGO']='';
 				};
-				$files_sup=tx_dam_db::getReferencedFiles('tx_commerce_supplier', $element->getSupplierUid(), 'dam_commerce_sup_1');
-				if(count($files_sup['files'])>0){
-					foreach($files_sup['files'] as $key=>$val){
-						$damField=$this_default->conf['listView.']['suppliers.']['fields.']['DAM_logo.'];
-						$damField['file']=$val;
-						$markerArray['ARTICLE_SUPPLIERLOGO'].=$this_default->cObj->IMAGE($damField);
-					}
-				}
+				tx_damcommerce_helpfunc::getImage($markerArray['ARTICLE_SUPPLIERLOGO'],$this_default,$this_default->conf['listView.']['suppliers.']['fields.']['DAM_logo.'],$element->getSupplierUid(),'tx_commerce_supplier','dam_commerce_sup_1');
 			}	
 		}	
 		return $markerArray;

@@ -33,13 +33,15 @@
  *
  *
  *
- *   43: class tx_damcommerce_products
- *   53:     function postProcessLinkArray($markerArray,$element,$this_default)
+ *   45: class tx_damcommerce_products
+ *   55:     function postProcessLinkArray($markerArray,$element,$this_default)
  *
  * TOTAL FUNCTIONS: 1
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
+require_once(t3lib_extMgm::extPath('dam_commerce').'class.tx_damcommerce_helpfunc.php');
+
 class tx_damcommerce_products{
 
 	/**
@@ -60,14 +62,7 @@ class tx_damcommerce_products{
 			if(!$tempSetup['add_orig_field_product_images']) {
 				$markerArray['###PRODUCT_IMAGES###']='';
 			};
-			$files_images=tx_dam_db::getReferencedFiles('tx_commerce_products', $uid, 'dam_commerce_prod_1');
-			if(count($files_images['files'])>0){
-				foreach($files_images['files'] as $key=>$val){
-					$damField=$this_default->conf['listView.']['products.']['fields.']['DAM_images.'];
-					$damField['file']=$val;
-					$markerArray['###PRODUCT_IMAGES###'].=$this_default->cObj->IMAGE($damField);
-				};
-			};
+			tx_damcommerce_helpfunc::getImage($markerArray['###PRODUCT_IMAGES###'],$this_default,$this_default->conf['listView.']['products.']['fields.']['DAM_images.'],$uid,'tx_commerce_products','dam_commerce_prod_1');
 		}
 		
 		/* product teaser images */
@@ -75,14 +70,7 @@ class tx_damcommerce_products{
 			if(!$tempSetup['add_orig_field_product_teaserimages']) {
 				$markerArray['###PRODUCT_TEASERIMAGES###']='';
 			};
-			$files_teaser=tx_dam_db::getReferencedFiles('tx_commerce_products', $uid, 'dam_commerce_prod_2');
-			if(count($files_teaser['files'])>0){
-				foreach($files_teaser['files'] as $key=>$val){
-					$damField=$this_default->conf['listView.']['products.']['fields.']['DAM_teaserimages.'];
-					$damField['file']=$val;
-					$markerArray['###PRODUCT_TEASERIMAGES###'].=$this_default->cObj->IMAGE($damField);
-				};
-			};
+			tx_damcommerce_helpfunc::getImage($markerArray['###PRODUCT_TEASERIMAGES###'],$this_default,$this_default->conf['listView.']['products.']['fields.']['DAM_teaserimages.'],$uid,'tx_commerce_products','dam_commerce_prod_2');
 		}
 		
 		/* product manufacturers logo */
@@ -90,14 +78,8 @@ class tx_damcommerce_products{
 			//if(!$tempSetup['add_orig_field_manufacturers_logo']) {
 				$markerArray['###PRODUCT_MANUFACTURERLOGO###']='';
 			//};
-			$files_manufa=tx_dam_db::getReferencedFiles('tx_commerce_manufacturer', $element->manufacturer_uid, 'dam_commerce_man_1');
-			if(count($files_manufa['files'])>0){
-				foreach($files_manufa['files'] as $key=>$val){
-					$damField=$this_default->conf['listView.']['manufacturers.']['fields.']['DAM_logo.'];
-					$damField['file']=$val;
-					$markerArray['###PRODUCT_MANUFACTURERLOGO###'].=$this_default->cObj->IMAGE($damField);
-				};
-			};
+			
+			tx_damcommerce_helpfunc::getImage($markerArray['###PRODUCT_MANUFACTURERLOGO###'],$this_default,$this_default->conf['listView.']['manufacturers.']['fields.']['DAM_logo.'],$element->manufacturer_uid,'tx_commerce_manufacturer','dam_commerce_man_1');
 		}
 		return $markerArray;
 	}

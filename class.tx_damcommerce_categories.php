@@ -33,13 +33,15 @@
  *
  *
  *
- *   43: class tx_damcommerce_categories
- *   53:     function additionalMarkerElement($markerArray,$element,$this_default)
+ *   45: class tx_damcommerce_categories
+ *   55:     function additionalMarkerElement($markerArray,$element,$this_default)
  *
  * TOTAL FUNCTIONS: 1
  * (This index is automatically created/updated by the extension "extdeveval")
  *
  */
+require_once(t3lib_extMgm::extPath('dam_commerce').'class.tx_damcommerce_helpfunc.php');
+
 class tx_damcommerce_categories{
 
 	/**
@@ -59,15 +61,7 @@ class tx_damcommerce_categories{
 			if(!$tempSetup['add_orig_field_category_images']) {
 				$markerArray['IMAGES']='';
 			};
-	
-			$files=tx_dam_db::getReferencedFiles('tx_commerce_categories', $uid, 'dam_commerce_cat_1');
-			if(count($files['files'])>0){
-				foreach($files['files'] as $key=>$val){
-					$damField=$this_default->conf['categoryListView.']['categories.']['fields.']['DAM_images.'];
-					$damField['file']=$val;
-					$markerArray['IMAGES'].=$this_default->cObj->IMAGE($damField);
-				}
-			}
+			tx_damcommerce_helpfunc::getImage($markerArray['IMAGES'],$this_default,$this_default->conf['categoryListView.']['categories.']['fields.']['DAM_images.'],$uid,'tx_commerce_categories','dam_commerce_cat_1');
 		}
 		return $markerArray;
 	}

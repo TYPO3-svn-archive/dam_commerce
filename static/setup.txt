@@ -1,42 +1,34 @@
 plugin.tx_commerce_pi1{
+	defaultDamImageSetting{
+		stdWrap.wrap=|
+		disable=0
+		title.field=title
+		alt.field=alt_text
+		caption=0
+		caption.field=caption
+		caption.layout=<div class="captionLayout"><span class="image">###IMAGE###</span><span class="caption">###CAPTION###</span></div>
+	}
 	categoryListView.categories.fields{
-		DAM_images{
-			file.maxW = 150
-			stdWrap.wrap=|
-			disable=0
-		}
+		DAM_images < plugin.tx_commerce_pi1.defaultDamImageSetting
+		DAM_images.file.maxW = 150
 	}
 	listView.products.fields{
-		DAM_images{
-			file.maxW = 150
-			stdWrap.wrap=|
-			disable=0
-		}
-		DAM_teaserimages{
-			file.maxW = 150
-			stdWrap.wrap=|
-			disable=0
-		}
+		DAM_images < plugin.tx_commerce_pi1.defaultDamImageSetting
+		DAM_images.file.maxW = 150
+		
+		DAM_teaserimages < plugin.tx_commerce_pi1.defaultDamImageSetting
+		DAM_teaserimages.file.maxW = 150
 	}
 	listView.articles.fields{
-		DAM_images{
-			file.maxW = 150
-			stdWrap.wrap=|
-			disable=0
-		}
+		DAM_images < plugin.tx_commerce_pi1.defaultDamImageSetting
+		DAM_images.file.maxW = 150
 	}
 	listView.suppliers.fields{
-		DAM_logo{
-			file.maxW = 50
-			stdWrap.wrap=|
-			disable=0
-		}
+		DAM_logo < plugin.tx_commerce_pi1.defaultDamImageSetting
+		DAM_logo.file.maxW = 50
 	}
 	listView.manufacturers.fields{
-		DAM_logo{
-			file.maxW = 50
-			stdWrap.wrap=|
-			disable=0
-		}
+		DAM_logo < plugin.tx_commerce_pi1.defaultDamImageSetting
+		DAM_logo.file.maxW = 50
 	}
 }
